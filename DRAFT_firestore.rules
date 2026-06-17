@@ -1,0 +1,89 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Global Safety Net - Default Deny Catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Reusable, hardened global helper primitives
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isEmailVerified() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // Validation Blueprint for UserProfile configuration
+    function isValidUserProfile(data) {
+      return data.uid == request.auth.uid 
+        && data.email == request.auth.token.email 
+        && data.displayName is string 
+        && data.displayName.size() <= 100
+        && (!data.keys().hasAll(['photoURL']) || (data.photoURL is string && data.photoURL.size() <= 500))
+        && (!data.keys().hasAll(['phone']) || (data.phone is string && data.phone.size() <= 20))
+        && (!data.keys().hasAll(['deliveryAddress']) || (data.deliveryAddress is string && data.deliveryAddress.size() <= 300))
+        && (!data.keys().hasAll(['city']) || (data.city is string && data.city.size() <= 100))
+        && (!data.keys().hasAll(['state']) || (data.state is string && data.state.size() <= 100))
+        && (!data.keys().hasAll(['pinCode']) || (data.pinCode is string && data.pinCode.size() <= 10))
+        && (!data.keys().hasAll(['updatedAt']) || (data.updatedAt == request.time));
+    }
+
+    // Validation Blueprint for Purchase Orders
+    function isValidOrder(data) {
+      return data.orderId is string && data.orderId.size() <= 50
+        && data.userId == request.auth.uid
+        && data.userEmail == request.auth.token.email
+        && data.total is number && data.total >= 1
+        && data.paymentMethod is string && (data.paymentMethod == 'cod' || data.paymentMethod == 'razorpay')
+        && data.paymentStatus is string && (data.paymentStatus == 'pending' || data.paymentStatus == 'success' || data.paymentStatus == 'failed')
+        && data.orderStatus is string && (data.orderStatus == 'processing' || data.orderStatus == 'shipped' || data.orderStatus == 'completed')
+        && data.recipientName is string && data.recipientName.size() <= 150
+        && data.phone is string && data.phone.size() <= 25
+        && data.shippingAddress is string && data.shippingAddress.size() <= 500
+        && data.city is string && data.city.size() <= 100
+        && data.state is string && data.state.size() <= 100
+        && data.pinCode is string && data.pinCode.size() <= 10
+        && data.items is list && data.items.size() > 0 && data.items.size() <= 50
+        && (!data.keys().hasAll(['paymentId']) || (data.paymentId is string && data.paymentId.size() <= 100))
+        && data.createdAt == request.time;
+    }
+
+    // 1. User Profile Document Path Rule
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      allow create, update: if isEmailVerified() && isOwner(userId) && isValidUserProfile(incoming());
+      allow delete: if false; // Profiles cannot be deleted from customer facing SDK
+    }
+
+    // 2. Orders Collection Path Rule
+    match /orders/{orderId} {
+      allow get: if isEmailVerified() && resource.data.userId == request.auth.uid;
+      allow list: if isEmailVerified() && resource.data.userId == request.auth.uid;
+      allow create: if isEmailVerified() && isValidId(orderId) && isValidOrder(incoming());
+      allow update: if isEmailVerified() && resource.data.userId == request.auth.uid 
+                    && (incoming().diff(existing()).affectedKeys().hasOnly(['paymentStatus', 'paymentId', 'updatedAt']) 
+                    && (incoming().paymentStatus == 'success' || incoming().paymentStatus == 'failed'));
+      allow delete: if false; // Orders cannot be deleted
+    }
+
+  }
+}

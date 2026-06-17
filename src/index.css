@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Fredoka:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&family=Lilita+One&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Montserrat", "Inter", system-ui, sans-serif;
+  --font-display: "Bebas Neue", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --font-food: "Fredoka", sans-serif;
+  --font-food-heavy: "Lilita One", "Fredoka", sans-serif;
+  --font-food-space: "Space Grotesk", sans-serif;
+  --font-food-wide: "Syne", sans-serif;
+  
+  --color-brand-pink: #FFF200; /* Chomps Yellow */
+  --color-brand-pink-light: #FAF7F2; /* Chomps Cream */
+  --color-brand-maroon: #111111; /* Chomps Black/Charcoal */
+  --color-brand-maroon-dark: #000000;
+  --color-brand-maroon-light: #8d5438; /* Baked Light Brown */
+  --color-brand-olive: #255231; /* Chomps Forest Green */
+  
+  /* Named Chomps Colors */
+  --color-chomps-red: #8d5438; /* Baked Light Brown */
+  --color-chomps-black: #111111;
+  --color-chomps-yellow: #FFF200;
+  --color-chomps-cream: #FAF7F2;
+  --color-chomps-green: #255231;
+  --color-chomps-orange: #EF6C00;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: #FAF7F2; /* Set fallback background and color to Chomps Cream */
+}
+
+/* Custom gorgeous scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f7eded;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5a8a8;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5E2626;
+}
+
+/* Marquee infinite scroll helper classes */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  animation: marquee 25s linear infinite;
+  white-space: nowrap;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}

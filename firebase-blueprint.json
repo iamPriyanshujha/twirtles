@@ -1,0 +1,78 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with personal and delivery details of a signed in user",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "The unique user ID matching request.auth.uid" },
+        "displayName": { "type": "string", "description": "User display name" },
+        "email": { "type": "string", "description": "User email address" },
+        "photoURL": { "type": "string", "description": "User google photo url" },
+        "deliveryAddress": { "type": "string", "description": "Saved delivery address lines" },
+        "phone": { "type": "string", "description": "Saved contact phone number" },
+        "city": { "type": "string", "description": "Saved town / city" },
+        "state": { "type": "string", "description": "Saved state" },
+        "pinCode": { "type": "string", "description": "Saved postal code" },
+        "wishlist": { "type": "array", "description": "Synchronized product IDs belonging to user wishlist interest" },
+        "updatedAt": { "type": "string", "description": "ISO timestamp of last update" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Custom snack product details customizable in CMS",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Product ID slug" },
+        "name": { "type": "string", "description": "Product name" },
+        "category": { "type": "string", "description": "Snack category identifier" },
+        "price": { "type": "number", "description": "Selling price of snack in INR" },
+        "rating": { "type": "number", "description": "User review rating average" },
+        "image": { "type": "string", "description": "Image key identifier" },
+        "badge": { "type": "string", "description": "Promotional overlay highlight badge text" },
+        "colorTheme": { "type": "object", "description": "Visual color themes and styles" }
+      },
+      "required": ["id", "name", "category", "price", "image"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Purchase order containing tracking, delivery details, items, and billing info",
+      "type": "object",
+      "properties": {
+        "orderId": { "type": "string", "description": "Unique purchase ID prefixed with TWR-" },
+        "userId": { "type": "string", "description": "UID of the user who ordered" },
+        "userEmail": { "type": "string", "description": "Email of the ordering user" },
+        "items": { "type": "array", "description": "List of cart items purchased" },
+        "total": { "type": "number", "description": "Checkout final payment total in INR" },
+        "paymentMethod": { "type": "string", "description": "COD or Razorpay" },
+        "paymentStatus": { "type": "string", "description": "Status of the payment" },
+        "paymentId": { "type": "string", "description": "Razorpay order or payment ID" },
+        "recipientName": { "type": "string", "description": "Billing first + last name" },
+        "phone": { "type": "string", "description": "Recipient phone number" },
+        "shippingAddress": { "type": "string", "description": "Full resolved delivery address" },
+        "city": { "type": "string", "description": "City of delivery" },
+        "state": { "type": "string", "description": "State of delivery" },
+        "pinCode": { "type": "string", "description": "Postal index PIN code" },
+        "orderStatus": { "type": "string", "description": "Current status of shipment/delivery" },
+        "createdAt": { "type": "string", "description": "Order creation timestamp" },
+        "updatedAt": { "type": "string", "description": "Order modification timestamp" }
+      },
+      "required": ["orderId", "userId", "userEmail", "total", "items", "paymentMethod", "paymentStatus", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile with secure PII isolated by document ID equals userId"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Orders submitted by users, protected so only the user owning the matching userId has access"
+    },
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Custom customizable snack product items managed by administrative CMS"
+    }
+  }
+}

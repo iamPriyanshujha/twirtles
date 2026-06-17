@@ -1,0 +1,6 @@
+{
+  "name": "Twirtles",
+  "description": "India's 1st Protein Chips Fortified with Essential Vitamins & Minerals. Healthy snacks packed with protein.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -40,18 +40,41 @@ export default function App() {
       try {
         const prodColRef = collection(db, 'products');
         const snap = await getDocs(prodColRef);
+        
+        let needsBootstrap = snap.empty;
+        const list: Product[] = [];
+        
         if (!snap.empty) {
-          const list: Product[] = [];
           snap.forEach((d) => {
             list.push({ id: d.id, ...d.data() } as Product);
           });
-          setProductsList(list);
-        } else {
-          // Bootstrap Firestore products collection with initial high quality defaults
+          
+          // If product count has changed, we don't have mrp field, or prices/weights have updated, force re-bootstrap
+          const missingMrp = list.some(p => !p.mrp);
+          const hasUpdates = PRODUCTS.some(localProd => {
+            const dbProd = list.find(p => p.id === localProd.id);
+            if (!dbProd) return true;
+            return (
+              dbProd.price !== localProd.price ||
+              dbProd.mrp !== localProd.mrp ||
+              dbProd.weight !== localProd.weight ||
+              dbProd.name !== localProd.name
+            );
+          });
+
+          if (list.length !== PRODUCTS.length || missingMrp || hasUpdates) {
+            needsBootstrap = true;
+          }
+        }
+
+        if (needsBootstrap) {
+          // Bootstrap Firestore products collection with updated high quality defaults
           for (const item of PRODUCTS) {
             await setDoc(doc(db, 'products', item.id), item);
           }
           setProductsList(PRODUCTS);
+        } else {
+          setProductsList(list);
         }
       } catch (err) {
         console.warn("Could not retrieve custom products, falling back to local snacks:", err);
@@ -266,15 +289,12 @@ export default function App() {
               toggleWishlist={toggleWishlist}
               addToCart={addToCart}
             />
-                        {/* Twirtles Featured In media press section */}
-            <FeaturedIn />
-
-            {/* Frequently Asked Accordions */}
 
             {/* CHOMPS SCREENSHOT DETAILS & HIGHLIGHTS GRID */}
             <ChompsHighlights onShopClick={handleHeroShopClick} addToCart={addToCart} />
 
-            
+            {/* Twirtles Featured In media press section */}
+            <FeaturedIn />
 
             {/* Frequently Asked Accordions */}
             <FAQ />

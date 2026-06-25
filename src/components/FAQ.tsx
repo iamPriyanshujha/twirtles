@@ -10,7 +10,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq-accordions-view" className="bg-[#B08968] py-20 px-4 md:px-8 text-[#351D14] border-b-4 border-[#351D14] border-t-4 border-[#351D14]">
+    <section id="faq-accordions-view" className="bg-[#e6ccb2] py-20 px-4 md:px-8 text-[#351D14] border-b-4 border-[#351D14] border-t-4 border-[#351D14]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         
         {/* Left Side: Accordion panels (Chomps sharp outline style with heavy card shadow) */}

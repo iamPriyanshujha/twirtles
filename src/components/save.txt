@@ -1,0 +1,408 @@
+import { Product, FAQItem, TestimonialItem, PressRelease } from './types';
+
+export const PRODUCTS: Product[] = [
+  {
+    id: 'oats-chips-peri-peri-jar',
+    name: 'Oats Chips - Peri Peri Jar Pack',
+    category: 'Oats Chips',
+    price: 189.00,
+    mrp: 250.00,
+    weight: '180g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'Popular',
+    description: 'Wholesome oats chips infused with fiery peri-peri spices, packaged in a premium airtight jar.',
+    colorTheme: {
+      bg: 'bg-amber-600/15',
+      text: 'text-amber-900',
+      accent: '#92400E',
+      chipColorBg: 'bg-amber-800',
+    }
+  },
+  {
+    id: 'makhana-cream-onion-jar',
+    name: 'Cream & Onion Makhana Jar Pack',
+    category: 'Flavoured Makhana',
+    price: 195.00,
+    mrp: 239.00,
+    weight: '75g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'Best Seller',
+    description: 'Crispy popped lotus seeds seasoned with a velvety cream & fresh chives onion blend.',
+    colorTheme: {
+      bg: 'bg-amber-950/10',
+      text: 'text-amber-800',
+      accent: '#722F37',
+      chipColorBg: 'bg-amber-800',
+    }
+  },
+  {
+    id: 'makhana-peri-peri-jar',
+    name: 'Peri Peri Makhana Jar Pack',
+    category: 'Flavoured Makhana',
+    price: 195.00,
+    mrp: 239.00,
+    weight: '75g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'Spicy',
+    description: 'Zesty and spicy roasted fox nuts with authentic African peri-peri seasoning.',
+    colorTheme: {
+      bg: 'bg-orange-500/10',
+      text: 'text-orange-800',
+      accent: '#A84222',
+      chipColorBg: 'bg-orange-600',
+    }
+  },
+  {
+    id: 'beetroot-chips-peri-peri-jar',
+    name: 'Beetroot Chips - Peri Peri Jar Pack',
+    category: 'Beetroot Chips',
+    price: 189.00,
+    mrp: 250.00,
+    weight: '180g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'Superfood',
+    description: 'Crispy organic beetroot chips dusted with sharp peri-peri seasoning in a sharing jar.',
+    colorTheme: {
+      bg: 'bg-[#F5EBE0]',
+      text: 'text-[#7F5539]',
+      accent: '#9C6644',
+      chipColorBg: 'bg-[#7F5539]',
+    }
+  },
+  {
+    id: 'makhana-mint-jar',
+    name: 'Mint Makhana Jar Pack',
+    category: 'Flavoured Makhana',
+    price: 195.00,
+    mrp: 239.00,
+    weight: '75g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'Fresh',
+    description: 'Cooling, refreshing pudina-dusted crispy roasted fox nuts in a reusable jar.',
+    colorTheme: {
+      bg: 'bg-emerald-500/10',
+      text: 'text-emerald-800',
+      accent: '#1E5E3A',
+      chipColorBg: 'bg-emerald-600',
+    }
+  },
+  {
+    id: 'ragi-chips-peri-peri-jar',
+    name: 'Ragi Chips - Peri Peri Jar Pack',
+    category: 'Ragi Chips',
+    price: 189.00,
+    mrp: 250.00,
+    weight: '180g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'High Fiber',
+    description: 'Nutrient-rich finger millet ragi crisps baked and spiced with hot peri-peri flavor.',
+    colorTheme: {
+      bg: 'bg-orange-500/10',
+      text: 'text-orange-800',
+      accent: '#EA580C',
+      chipColorBg: 'bg-orange-600',
+    }
+  },
+  {
+    id: 'makhana-himalayan-salt-jar',
+    name: 'Himalayan Salt Makhana Jar Pack',
+    category: 'Flavoured Makhana',
+    price: 195.00,
+    mrp: 239.00,
+    weight: '75g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'Classic',
+    description: 'Lightly roasted crispy makhana popped seeds seasoned with pure Himalayan pink salt.',
+    colorTheme: {
+      bg: 'bg-indigo-500/10',
+      text: 'text-indigo-800',
+      accent: '#0F4C5C',
+      chipColorBg: 'bg-indigo-600',
+    }
+  },
+  {
+    id: 'makhana-tandoori-jar',
+    name: 'Tandoori Makhana Jar Pack',
+    category: 'Flavoured Makhana',
+    price: 195.00,
+    mrp: 239.00,
+    weight: '75g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'Smoky',
+    description: 'Robust smoky tandoori Indian clay-oven spice roasted makhana fox nuts in a jar.',
+    colorTheme: {
+      bg: 'bg-amber-600/10',
+      text: 'text-amber-900',
+      accent: '#B45309',
+      chipColorBg: 'bg-amber-700',
+    }
+  },
+  {
+    id: 'oats-chips-peri-peri-pouch',
+    name: 'Peri Peri Oats Chips Pouch Pack',
+    category: 'Oats Chips',
+    price: 29.00,
+    mrp: 30.00,
+    weight: '30g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'On-the-Go',
+    description: 'Compact individual serving pocket pouch of peri-peri baked whole grain oats chips.',
+    colorTheme: {
+      bg: 'bg-amber-600/15',
+      text: 'text-amber-900',
+      accent: '#92400E',
+      chipColorBg: 'bg-amber-800',
+    }
+  },
+  {
+    id: 'beetroot-chips-peri-peri-pouch',
+    name: 'Peri Peri Beetroot Chips Pouch Pack',
+    category: 'Beetroot Chips',
+    price: 29.00,
+    mrp: 30.00,
+    weight: '30g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'Antioxidant',
+    description: 'Crisp individual travel pouch of nutrient-dense beetroot peri-peri baked chips.',
+    colorTheme: {
+      bg: 'bg-[#F5EBE0]',
+      text: 'text-[#7F5539]',
+      accent: '#9C6644',
+      chipColorBg: 'bg-[#7F5539]',
+    }
+  },
+  {
+    id: 'ragi-chips-peri-peri-pouch',
+    name: 'Peri Peri Ragi Chips Pouch Pack',
+    category: 'Ragi Chips',
+    price: 29.00,
+    mrp: 30.00,
+    weight: '30g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'Nutrient Pack',
+    description: 'Baked crispy ragi millet chips in a quick snacking pouch with a peri-peri kick.',
+    colorTheme: {
+      bg: 'bg-orange-500/10',
+      text: 'text-orange-800',
+      accent: '#EA580C',
+      chipColorBg: 'bg-orange-600',
+    }
+  },
+  {
+    id: 'superpuffs-hot-sweet-chilli',
+    name: 'Superpuffs - Hot & Sweet Chilli',
+    category: 'Superpuffs',
+    price: 48.00,
+    mrp: 50.00,
+    weight: '50g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'New',
+    description: "India's first fortified high-protein puff chip in an explosive hot and sweet chilli flavor.",
+    colorTheme: {
+      bg: 'bg-red-500/10',
+      text: 'text-red-750',
+      accent: '#EF4444',
+      chipColorBg: 'bg-red-600',
+    }
+  },
+  {
+    id: 'superpuffs-creme-onion-pouch',
+    name: 'Superpuffs - Crème & Onion',
+    category: 'Superpuffs',
+    price: 48.00,
+    mrp: 50.00,
+    weight: '50g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'Fave',
+    description: 'Rich, smooth creme and onion seasoning on our signature high-protein vitamin fortified puffs.',
+    colorTheme: {
+      bg: 'bg-emerald-500/10',
+      text: 'text-emerald-800',
+      accent: '#10B981',
+      chipColorBg: 'bg-emerald-600',
+    }
+  },
+  {
+    id: 'superpuffs-spanish-tomato-pouch',
+    name: 'Superpuffs - Spanish Tomato',
+    category: 'Superpuffs',
+    price: 48.00,
+    mrp: 50.00,
+    weight: '50g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'Juicy',
+    description: 'Tangy Mediterranean tomatoes infused onto crunchy, oven-baked high protein puffs.',
+    colorTheme: {
+      bg: 'bg-rose-500/10',
+      text: 'text-rose-700',
+      accent: '#FF4D4D',
+      chipColorBg: 'bg-rose-600',
+    }
+  },
+  {
+    id: 'superpuffs-hot-sweet-chilli-jar',
+    name: 'Superpuffs - Hot & Sweet Chilli Jar Pack',
+    category: 'Superpuffs',
+    price: 199.00,
+    mrp: 250.00,
+    weight: '150g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'Family Size',
+    description: 'Large shareable airtight canister packed with hot & sweet chilli vitamin-fortified puffs.',
+    colorTheme: {
+      bg: 'bg-red-500/10',
+      text: 'text-red-750',
+      accent: '#EF4444',
+      chipColorBg: 'bg-red-600',
+    }
+  },
+  {
+    id: 'superpuffs-creme-onion-jar',
+    name: 'Superpuffs - Crème & Onion Jar Pack',
+    category: 'Superpuffs',
+    price: 199.00,
+    mrp: 250.00,
+    weight: '150g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'Cozy Pack',
+    description: 'Crispy high-protein creme & onion puff crisps in our large reusable jar.',
+    colorTheme: {
+      bg: 'bg-emerald-500/10',
+      text: 'text-emerald-800',
+      accent: '#10B981',
+      chipColorBg: 'bg-emerald-600',
+    }
+  },
+  {
+    id: 'superpuffs-indie-masala-jar',
+    name: 'Superpuffs - Indie Masala Jar Pack',
+    category: 'Superpuffs',
+    price: 199.00,
+    mrp: 250.00,
+    weight: '150g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'Spicy Masala',
+    description: 'A traditional aromatic blend of Indian masalas coated onto our premium protein-dense puffs.',
+    colorTheme: {
+      bg: 'bg-amber-500/10',
+      text: 'text-amber-800',
+      accent: '#EA580C',
+      chipColorBg: 'bg-amber-600',
+    }
+  }
+];
+
+export const CATEGORIES = [
+  {
+    name: 'Superpuffs',
+    count: '6 products',
+    image: 'superpuffs-cat',
+    accentColor: '#EF4444',
+    bgStyle: 'bg-gradient-to-br from-red-600 to-amber-600 text-white',
+  },
+  {
+    name: 'Ragi Chips',
+    count: '2 products',
+    image: 'ragi-cat',
+    accentColor: '#D97706',
+    bgStyle: 'bg-gradient-to-br from-yellow-100 to-amber-200 text-amber-950 border border-amber-300',
+  },
+  {
+    name: 'Oats Chips',
+    count: '2 products',
+    image: 'oats-cat',
+    accentColor: '#854D0E',
+    bgStyle: 'bg-gradient-to-br from-amber-50 to-orange-100 text-amber-900 border border-amber-200',
+  },
+  {
+    name: 'Flavoured Makhana',
+    count: '5 products',
+    image: 'makhana-cat',
+    accentColor: '#4338CA',
+    bgStyle: 'bg-gradient-to-br from-violet-900 via-indigo-950 to-slate-900 text-white',
+  },
+  {
+    name: 'Beetroot Chips',
+    count: '2 products',
+    image: 'beetroot-cat',
+    accentColor: '#9C6644',
+    bgStyle: 'bg-gradient-to-br from-[#FAF8F5] to-[#EDE0D4] text-[#7F5539] border border-[#D4A373]',
+  }
+];
+
+export const FAQS: FAQItem[] = [
+  {
+    question: 'WHAT MAKES TWIRTLES DIFFERENT FROM OTHER HEALTHY SNACK BRANDS?',
+    answer: 'Twirtles is India\'s first protein chips fortified with essential vitamins and minerals. Unlike typical processed snacks, our chips are baked (not fried), made from wholesome ingredients such as Ragi, Quinoa, Oats and Beetroot, and packed with plant-based protein, dietary fiber, and dynamic zinc + B-vitamins without any palm oil!'
+  },
+  {
+    question: 'WHERE CAN I FIND TWIRTLES PRODUCTS?',
+    answer: 'Twirtles products are available right here on our official online store, as well as major organic e-commerce channels, premium supermarket shelves, and health boutiques across metro cities in India.'
+  },
+  {
+    question: 'WHAT IF I DON\'T LIKE THE PRODUCT? IS THERE A RETURN OR REFUND POLICY?',
+    answer: 'We guarantee 100% satisfaction! If you are not completely satisfied with our delicious healthy snacks, please reach out to our happiness desk within 7 days of delivery for a replacement or a hassle-free full refund. Your health and happiness are our priority!'
+  }
+];
+
+export const TESTIMONIALS: TestimonialItem[] = [
+  {
+    name: 'Riya Sharma',
+    date: 'Jan 25, 2026',
+    rating: 5,
+    text: 'I\'ve tried many healthy snacks before, but Twirtles truly stands out! The flavors are amazing and the fact that it\'s high in protein makes it my go-to snack after workouts. Absolutely love it!'
+  },
+  {
+    name: 'Aman Verma',
+    date: 'Jan 2, 2026',
+    rating: 5,
+    text: 'Twirtles has completely changed my snacking habits. It\'s tasty, light, and guilt-free. The Cream N\' Onion flavor is my personal favorite. Highly recommended for anyone looking for healthy alternatives!'
+  },
+  {
+    name: 'Karan Mehra',
+    date: 'May 10, 2026',
+    rating: 5,
+    text: 'Baked, no palm oil, and high protein! Finally a brand that stands true to its label. The peri peri ragi chips are insanely addictive yet totally guilt-free!'
+  }
+];
+
+export const PRESS_RELEASES: PressRelease[] = [
+  {
+    logo: 'msn',
+    title: 'Twirtles launches Superpuffs, India\'s first protein chips fortified with vitamins and minerals',
+    source: 'MSN News',
+    snippet: 'Healthy snacking just saw a massive leap. Twirtles launches super-packed multigrain snacks with high protein & vitamin loads.',
+    screenshotUrl: 'msn-screenshot'
+  },
+  {
+    logo: 'cnbc',
+    title: 'Twirtles Enters Protein Chips Market With Superpuffs',
+    source: 'CNBC TV18',
+    snippet: 'Fireside discussion on how startup Twirtles is innovating in the healthy Indian snack industry with baked multi-grain chips.',
+    screenshotUrl: 'cnbc-screenshot'
+  },
+  {
+    logo: 'tribune',
+    title: 'Twirtles launches Superpuffs, India\'s first protein chips fortified with vitamins and minerals',
+    source: 'The Tribune India',
+    snippet: 'Snack Revolution: Twirtles is disrupting the junk food market by introducing premium nutritionally fortified finger foods.',
+    screenshotUrl: 'tribune-screenshot'
+  }
+];

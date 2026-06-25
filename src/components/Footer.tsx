@@ -15,7 +15,7 @@ export default function Footer({ currentView, setView }: FooterProps) {
   };
 
   return (
-    <footer className="bg-[#B08968] text-[#351D14] pt-16 pb-10 border-t-4 border-[#8d5438] relative font-sans">
+    <footer className="bg-[#e6ccb2] text-[#351D14] pt-16 pb-10 border-t-4 border-[#8d5438] relative font-sans">
       
       {/* Primary footer layout matching modern premium web header colors */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -171,9 +171,9 @@ export default function Footer({ currentView, setView }: FooterProps) {
 
       {/* Deep Bottom Disclaimer Bar */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 mt-14 pt-6 border-t border-[#351D14]/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-[#351D14]/70 font-mono font-bold">
-        <p>© {new Date().getFullYear()} Twirtles Snacking Pvt. Ltd. All rights reserved.</p>
+        <p>© {new Date().getFullYear()}  Deccan Food Ventures . Ltd. All rights reserved.</p>
         <p className="flex items-center gap-1">
-          Made with <Heart className="w-2.5 h-2.5 text-chomps-red fill-chomps-red animate-pulse" /> in India. Certified Gluten-Free & Baked. 
+          Made with <Heart className="w-2.5 h-2.5 text-chomps-red fill-chomps-red animate-pulse" /> in India. 
           <span className="flex items-center gap-1 text-[#351D14] pl-1.5 font-bold"><Shield className="w-3.5 h-3.5 text-[#8d5438]" /> FSSAI Approved</span>
         </p>
       </div>

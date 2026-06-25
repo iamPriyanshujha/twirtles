@@ -65,7 +65,7 @@ export default function Header({
       </div>
 
        <header className="sticky top-0 z-50 bg-[#B08968] px-2.5 xs:px-4 md:px-10 py-3.5 md:py-6 text-[#351D14] shadow-xs select-none border-b border-[#E6CCB2]">
-        <div className="relative w-full grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <div className="relative w-full flex items-center justify-between gap-4">
           
           {/* Left Side Navigation wrapper */}
           <div className="flex-1 flex items-center justify-start">
@@ -83,6 +83,7 @@ export default function Header({
               
               <span className="text-[#351D14]/20 font-light select-none">|</span>
               
+             
               <button 
                 id="nav-about-btn"
                 onClick={() => { setView('about'); }}
@@ -104,17 +105,16 @@ export default function Header({
               <Menu className="w-6 h-6" strokeWidth={2} />
             </button>
           </div>
-
-          {/* Center Brand Logo - Positioned perfectly in the center, preventing any collision */}
-          <div 
-            id="header-app-logo"
-            onClick={() => setView('home')} 
-            className="flex-shrink-0 flex items-center justify-center cursor-pointer select-none z-10 mx-auto"
-          >
-            <div className="hover:scale-105 transition-all duration-300 flex items-center justify-center">
-              <TwirtlesLogo className="h-[42px] xs:h-7 sm:h-8 md:h-10 lg:h-[62px] w-auto" />
-            </div>
-          </div>
+{/* Center Brand Logo - Positioned perfectly in the center, preventing any collision */}
+<div 
+  id="header-app-logo"
+  onClick={() => setView('home')} 
+  className="flex-shrink-0 flex items-center justify-center cursor-pointer select-none z-10 mx-auto bg-transparent"
+>
+  <div className="hover:scale-105 transition-all duration-300 flex items-center justify-center bg-transparent">
+    <TwirtlesLogo className="h-[42px] xs:h-7 sm:h-8 md:h-10 lg:h-[62px] w-auto bg-transparent block" />
+  </div>
+</div>
 
           {/* Right Side Widgets (Search Input, Wishlist, My Account, My Cart) */}
           <div className="flex-1 flex items-center justify-end gap-1.5 xs:gap-2.5 sm:gap-4 md:gap-6">

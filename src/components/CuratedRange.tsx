@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Heart, RefreshCw, Star, ShoppingCart, ChevronLeft, ChevronRight, Check, X } from 'lucide-react';
+import { Heart, RefreshCw, Star, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { Product } from '../types';
 import ChipPacket from './ChipPacket';
 
@@ -12,7 +12,7 @@ import OATS from '../assets/canisters/OATS CHIPS.png';
 import peri from '../assets/canisters/peri peri can.png';
 import ragi from '../assets/canisters/RAGI CHIPS can.png';
 import tandoori from '../assets/canisters/TANDOORI.png';
-
+import superpuffs from '../assets/canisters/SUPERPUFFS.png';
 const getCanImage = (product: Product): string => {
   if (product.image) {
     const rawImage = product.image;
@@ -85,7 +85,9 @@ export default function CuratedRange({
   });
 
   const categories = ['All', 'Superpuffs', 'Ragi Chips', 'Quinoa Chips', 'Oats Chips', 'Flavoured Makhana', 'Beetroot Chips'];
-  const itemsPerPage = isMobile ? 2 : 4;
+  
+  // STRICT REQUIREMENT: Only show 1 product at a time in mobile view for the slider
+  const itemsPerPage = isMobile ? 1 : 4;
 
   const handleNext = () => {
     const totalPages = Math.ceil(filtered.length / itemsPerPage);
@@ -112,49 +114,18 @@ export default function CuratedRange({
     }, 1500);
   };
 
-  const getPhotoshootBackdrop = (product: Product) => {
-    switch (product.image) {
-      case 'red-tomato':
-        return { bg: '#FEE2E2', elements: <div className="absolute inset-0 bg-gradient-to-tr from-red-500/5 to-transparent pointer-events-none" /> };
-      case 'ragi-bag':
-        return { bg: '#FEF3C7', elements: <div className="absolute inset-0 bg-gradient-to-tr from-amber-400/5 to-transparent pointer-events-none" /> };
-      case 'ragi-peri-jar':
-        return { bg: '#FFEDD5', elements: <div className="absolute inset-0 bg-gradient-to-tr from-orange-400/5 to-transparent pointer-events-none" /> };
-      case 'green-onion':
-        return { bg: '#D1FAE5', elements: <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/5 to-transparent pointer-events-none" /> };
-      case 'quinoa-jar':
-        return { bg: '#CCFBF1', elements: <div className="absolute inset-0 bg-gradient-to-tr from-teal-500/5 to-transparent pointer-events-none" /> };
-      case 'oats-bag':
-        return { bg: '#FEF3C7', elements: <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/5 to-transparent pointer-events-none" /> };
-      case 'beetroot-bag':
-        return { bg: '#EDE0D4', elements: <div className="absolute inset-0 bg-gradient-to-tr from-rose-500/5 to-transparent pointer-events-none" /> };
-      case 'makhana-can-cream':
-        return { bg: '#E2EBE9', elements: <div className="absolute inset-0 bg-gradient-to-tr from-[#10B981]/5 to-transparent pointer-events-none" /> };
-      case 'makhana-can-salt':
-        return { bg: '#E2ECF1', elements: <div className="absolute inset-0 bg-gradient-to-tr from-sky-400/5 to-transparent pointer-events-none" /> };
-      case 'makhana-can-mint':
-        return { bg: '#E2EFE4', elements: <div className="absolute inset-0 bg-gradient-to-tr from-[#1E5E3A]/5 to-transparent pointer-events-none" /> };
-      case 'makhana-can-peri':
-        return { bg: '#FBECE3', elements: <div className="absolute inset-0 bg-gradient-to-tr from-orange-400/5 to-transparent pointer-events-none" /> };
-      case 'makhana-can-tandoori':
-        return { bg: '#F7EADE', elements: <div className="absolute inset-0 bg-gradient-to-tr from-[#B45309]/5 to-transparent pointer-events-none" /> };
-      default:
-        return { bg: '#F5F2EA', elements: <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/5 to-transparent pointer-events-none" /> };
-    }
-  };
-
   return (
     <section id="curated-range-view" className="py-16 bg-[#FAF7F2] px-4 md:px-8 border-b-4 border-chomps-black relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
         <div className="text-center mb-6">
-          <h2 className="font-display font-black text-5xl md:text-6.5xl text-chomps-black tracking-widest uppercase leading-none">
+          <h2 className="font-display font-black text-4xl sm:text-5xl md:text-6.5xl text-chomps-black tracking-widest uppercase leading-none">
             These Snacks Stack Up
           </h2>
           <p className="font-sans font-bold text-gray-500 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto uppercase mt-3 tracking-wide">
             {viewMode === 'slider' 
               ? "Who said snacks need to be complicated? Stick to the basics: 0g sugar and plenty of protein, in a range of Chompable flavors."
-              : "Bite into our delicious, high protein chips or crispy puffs. Stack up on what fits, loaded to fuel your busy day with absolute clean nutrition."
+              : "Bite into our delicious, high protein chips or crispy puffs. Stack up on what fits, loaded to fuel your day with absolute clean nutrition."
             }
           </p>
           <div className="w-24 h-1.5 bg-chomps-red mx-auto mt-4" />
@@ -204,53 +175,57 @@ export default function CuratedRange({
             <>
               {viewMode === 'slider' ? (
                 <div className="flex flex-col gap-8 w-full">
-                  {/* items-stretch applied here ensures columns share identical heights */}
                   <div className="flex flex-wrap sm:flex-nowrap justify-center gap-4 sm:gap-6 transition-all duration-300 items-stretch">
                     {(filtered.length <= itemsPerPage ? filtered : visibleProducts).map((product) => {
                       const isWished = wishlist.includes(product.id);
                       const isJustAdded = justAddedProduct === product.id;
-                      const backdrop = getPhotoshootBackdrop(product);
                       const isCanister = product.category === 'Flavoured Makhana' || product.id.startsWith('flavoured-makhana-');
-                      const isCustomImg = product.image && !isCanister && (product.image.startsWith('http') || product.image.startsWith('data:') || product.image.includes('/') || product.image.includes('.'));
+                      
+                      const isUrlImage = product.image && (
+                        product.image.startsWith('http') || 
+                        product.image.startsWith('data:') || 
+                        product.image.startsWith('blob:') || 
+                        product.image.includes('/assets/') || 
+                        product.image.includes('uploads/') || 
+                        product.image.includes('.') || 
+                        product.image.includes('/')
+                      );
 
                       return (
                         <div 
                           key={product.id}
                           className="flex flex-col bg-white border-2 border-chomps-black p-4 w-full sm:w-[calc(50%-12px)] md:w-[calc(25%-18px)] shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
                         >
-                          {/* Uniform Image Frame Container */}
-                          <div className="relative w-full aspect-square border border-neutral-200 flex items-center justify-center overflow-hidden mb-4 bg-neutral-50 rounded-none">
-                            {isCanister ? (
-                              <>
-                                <div className="absolute inset-0" style={{ backgroundColor: backdrop.bg || '#F7EADE' }} />
-                                {backdrop.elements}
-                                <img 
-                                  src={getCanImage(product)} 
-                                  alt={product.name}
-                                  className="h-36 sm:h-44 w-auto max-w-[90%] object-contain z-10 select-none transform hover:scale-105 transition-transform duration-300"
-                                  draggable={false}
-                                />
-                              </>
+                          {/* Image Frame Container - Standardized for identical image bounding-box sizes across all formats */}
+                          <div className="relative w-full aspect-square border border-neutral-200 bg-white flex items-center justify-center overflow-hidden mb-4 p-4 rounded-none">
+                            {isUrlImage ? (
+                              <img 
+                                src={product.image} 
+                                alt={product.name} 
+                                className="w-full h-full object-contain select-none transition-transform duration-300 hover:scale-105" 
+                                draggable={false}
+                              />
+                            ) : isCanister ? (
+                              <img 
+                                src={getCanImage(product)} 
+                                alt={product.name}
+                                className="w-full h-full object-contain select-none transition-transform duration-300 hover:scale-105"
+                                draggable={false}
+                              />
                             ) : (
-                              <>
-                                <div className="absolute inset-0" style={{ backgroundColor: backdrop.bg || '#F5F2EA' }} />
-                                {backdrop.elements}
-                                <div className="relative z-10 w-full h-full p-4 flex items-center justify-center">
-                                  <ChipPacket 
-                                    type={isCustomImg ? product.image : product.image} 
-                                    className="w-full h-full max-h-[160px] object-contain" 
-                                    animate={false} 
-                                  />
-                                </div>
-                              </>
+                              <ChipPacket 
+                                type={product.image} 
+                                className="w-full h-full" 
+                                animate={false} 
+                              />
                             )}
                           </div>
 
-                          {/* Content Wrapper pushed downward equally */}
+                          {/* Content Wrapper */}
                           <div className="flex flex-col flex-grow justify-between text-left">
                             <div>
                               <h3 className="font-display font-black text-chomps-black text-lg uppercase tracking-wider leading-tight line-clamp-1 mb-1">
-                                {product.name}
+                                {product.name} {product.weight && <span className="text-xs text-gray-500 font-sans font-bold">({product.weight})</span>}
                               </h3>
 
                               <div className="min-h-[36px] mb-2">
@@ -268,11 +243,19 @@ export default function CuratedRange({
                               </div>
                             </div>
 
-                            {/* Action rows pinned systematically to base line alignment */}
                             <div className="mt-auto">
+                              {/* Integrated Updated Pricing List with Exact requested formatting style */}
                               <div className="flex items-center justify-between w-full mb-3">
-                                <span className="text-chomps-black font-sans font-black text-lg">
-                                  ₹ {product.price.toFixed(2)}
+                                <span className="text-chomps-black font-sans font-black flex items-center gap-1.5 select-none">
+                                  {product.mrp && product.mrp > product.price && (
+                                    <span className="line-through text-gray-400 font-bold text-base sm:text-lg decoration-[#8d5438] decoration-[3px]">
+                                      ₹{product.mrp}
+                                    </span>
+                                  )}
+                                  {product.mrp && product.mrp > product.price && <span className="text-gray-400 font-normal text-sm">-</span>}
+                                  <span className="text-chomps-black font-black text-lg sm:text-2xl">
+                                    ₹{product.price}
+                                  </span>
                                 </span>
                                 <button
                                   onClick={() => toggleWishlist(product)}
@@ -298,22 +281,40 @@ export default function CuratedRange({
                   </div>
 
                   {filtered.length > itemsPerPage && (
-                    <div className="flex items-center justify-center gap-4 mt-4 select-none">
-                      <button
-                        onClick={handlePrev}
-                        className="p-2 bg-chomps-black hover:bg-chomps-red text-white border-2 border-chomps-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
-                      >
-                        <ChevronLeft className="w-5 h-5" />
-                      </button>
-                      <span className="font-sans font-black text-xs uppercase tracking-widest text-chomps-black">
-                        PAGE {page + 1} OF {Math.ceil(filtered.length / itemsPerPage)}
-                      </span>
-                      <button
-                        onClick={handleNext}
-                        className="p-2 bg-chomps-black hover:bg-chomps-red text-white border-2 border-chomps-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
-                      >
-                        <ChevronRight className="w-5 h-5" />
-                      </button>
+                    <div className="flex flex-col items-center gap-3 mt-4 select-none">
+                      {/* Smooth Dot indicator for slider progress */}
+                      <div className="flex items-center gap-2">
+                        {Array.from({ length: Math.ceil(filtered.length / itemsPerPage) }).map((_, i) => (
+                          <button
+                            key={i}
+                            onClick={() => setPage(i)}
+                            className={`h-2.5 rounded-full transition-all duration-300 ${
+                              page === i 
+                                ? 'w-6 bg-chomps-red' 
+                                : 'w-2.5 bg-gray-300 hover:bg-gray-400'
+                            }`}
+                            aria-label={`Go to page ${i + 1}`}
+                          />
+                        ))}
+                      </div>
+
+                      <div className="flex items-center justify-center gap-4">
+                        <button
+                          onClick={handlePrev}
+                          className="p-2 bg-chomps-black hover:bg-chomps-red text-white border-2 border-chomps-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
+                        >
+                          <ChevronLeft className="w-5 h-5" />
+                        </button>
+                        <span className="font-sans font-black text-xs uppercase tracking-widest text-chomps-black">
+                          PAGE {page + 1} OF {Math.ceil(filtered.length / itemsPerPage)}
+                        </span>
+                        <button
+                          onClick={handleNext}
+                          className="p-2 bg-chomps-black hover:bg-chomps-red text-white border-2 border-chomps-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
+                        >
+                          <ChevronRight className="w-5 h-5" />
+                        </button>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -324,32 +325,51 @@ export default function CuratedRange({
                     const isWished = wishlist.includes(product.id);
                     const isJustAdded = justAddedProduct === product.id;
                     const isCanister = product.category === 'Flavoured Makhana' || product.id.startsWith('flavoured-makhana-');
-                    const isCustomImg = product.image && !isCanister && (product.image.startsWith('http') || product.image.startsWith('data:') || product.image.includes('/') || product.image.includes('.'));
+                    
+                    const isUrlImage = product.image && (
+                      product.image.startsWith('http') || 
+                      product.image.startsWith('data:') || 
+                      product.image.startsWith('blob:') || 
+                      product.image.includes('/assets/') || 
+                      product.image.includes('uploads/') || 
+                      product.image.includes('.') || 
+                      product.image.includes('/')
+                    );
 
                     return (
                       <div 
                         key={product.id} 
                         className="group flex flex-col bg-white border-2 border-chomps-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all duration-200"
                       >
-                        {isCanister ? (
-                          <div className={`p-6 ${product.colorTheme.bg || 'bg-amber-950/10'} flex items-center justify-center relative min-h-[220px] max-h-[220px] overflow-hidden border-b border-neutral-100`}>
+                        {/* Image Frame Container - Standardized for identical image bounding-box sizes across all formats */}
+                        <div className="relative w-full aspect-square border-b border-neutral-100 bg-white flex items-center justify-center overflow-hidden p-4">
+                          {isUrlImage ? (
+                            <img 
+                              src={product.image} 
+                              alt={product.name} 
+                              className="w-full h-full object-contain select-none transition-transform duration-300 group-hover:scale-105" 
+                              draggable={false}
+                            />
+                          ) : isCanister ? (
                             <img 
                               src={getCanImage(product)} 
                               alt={product.name}
-                              className="h-40 w-auto max-w-full object-contain z-10 transform group-hover:scale-105 transition-transform duration-300"
+                              className="w-full h-full object-contain select-none transition-transform duration-300 group-hover:scale-105"
                               draggable={false}
                             />
-                          </div>
-                        ) : (
-                          <div className={`p-6 ${product.colorTheme.bg || 'bg-white'} flex items-center justify-center relative min-h-[220px] max-h-[220px] border-b border-neutral-100`}>
-                            <ChipPacket type={product.image} className="w-full h-full max-h-[150px] object-contain drop-shadow-lg scale-95 group-hover:scale-105 transition-transform duration-300" />
-                          </div>
-                        )}
+                          ) : (
+                            <ChipPacket 
+                              type={product.image} 
+                              className="w-full h-full" 
+                              animate={false}
+                            />
+                          )}
+                        </div>
 
                         <div className="p-4 flex-1 flex flex-col justify-between">
                           <div>
                             <h3 className="font-display font-normal text-chomps-black text-2xl uppercase tracking-wider line-clamp-1">
-                              {product.name}
+                              {product.name} {product.weight && <span className="text-sm text-gray-500 font-sans font-semibold">({product.weight})</span>}
                             </h3>
 
                             <div className="min-h-[36px] my-2">
@@ -367,8 +387,17 @@ export default function CuratedRange({
                               <span className="text-[10px] text-gray-500 font-mono font-bold pl-1.5">(4.9)</span>
                             </div>
 
-                            <div className="text-chomps-red font-mono font-black text-lg mb-4 text-left">
-                              ₹ {product.price.toFixed(2)}
+                            {/* Grid View Pricing List with exact requested format */}
+                            <div className="font-mono font-black mb-4 text-left flex flex-wrap items-center gap-1.5 select-none">
+                              {product.mrp && product.mrp > product.price && (
+                                <span className="line-through text-gray-400 font-bold text-base decoration-[#8d5438] decoration-[3px]">
+                                  ₹{product.mrp}
+                                </span>
+                              )}
+                              {product.mrp && product.mrp > product.price && <span className="text-gray-400 font-normal text-xs">-</span>}
+                              <span className="text-chomps-red font-black text-lg">
+                                ₹{product.price}
+                              </span>
                             </div>
                           </div>
 

@@ -9,23 +9,33 @@ import {
   Leaf, 
   ShieldCheck, 
   Smile, 
-  Flame, 
+  Flame,
   Award, 
   Milestone, 
   Instagram, 
   ArrowRight,
   TrendingUp,
-  Zap
+  Zap,
+  Droplet,
+  Bolt,
+  Sun,
+  Activity,
+  Check,
+  Play,
+  Camera
 } from 'lucide-react';
 import TwirtlesLogo from './TwirtlesLogo';
 import FAQ from './FAQ';
-
+import FeaturedIn from './FeaturedIn';
 interface AboutPageProps {
   setView: (view: 'home' | 'cart' | 'checkout' | 'account' | 'wishlist' | 'about' | 'admin') => void;
 }
 
 export default function AboutPage({ setView }: AboutPageProps) {
   const [isSubscribed, setIsSubscribed] = useState(false);
+
+
+  
 
   const founders = [
     {
@@ -120,6 +130,162 @@ export default function AboutPage({ setView }: AboutPageProps) {
         </div>
       </section>
 
+    
+      {/* 4.5 THE SUPERPUFFS HEALTH & NUTRITION STORY SECTION */}
+      <section className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 border-b-4 border-black bg-[#F5EBE0]">
+        <div className="max-w-4xl mx-auto bg-white border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] rounded-2xl overflow-hidden p-6 sm:p-10 md:p-14">
+          
+          <div className="flex items-center gap-1.5 text-xs text-[#8d5438] font-food-space font-black uppercase tracking-widest mb-6">
+            <span>About</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#8d5438]/40"></span>
+            <span className="bg-orange-100 text-[#8d5438] px-2 py-0.5 border border-[#8d5438]/20 rounded text-[10px]">The Superpuffs Story</span>
+          </div>
+
+          <h2 className="font-food-heavy text-4xl sm:text-6xl md:text-7xl leading-[1.05] uppercase tracking-normal text-black mb-6 max-w-2xl">
+            When snacking finally grew up
+          </h2>
+          
+          <p className="text-lg sm:text-2.5xl text-gray-755 font-food font-semibold leading-relaxed mb-12 max-w-2xl">
+            India's first protein chips, fortified for the deficiencies most of us are quietly living with.
+          </p>
+
+          {/* Three pillars grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-14 text-left">
+            <div className="bg-[#FAF7F2] border-2 border-black p-6 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all">
+              <div className="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center border-2 border-black mb-4 shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)]">
+                <Bolt className="w-5 h-5 text-orange-600 fill-orange-200" />
+              </div>
+              <h4 className="font-food-heavy font-normal text-lg uppercase tracking-wide text-black mb-2">Protein first</h4>
+              <p className="text-xs sm:text-sm text-gray-600 font-food font-medium leading-relaxed">
+                Built on a protein-dense grain base, rather than sprinkled onto a processed potato chip.
+              </p>
+            </div>
+
+            <div className="bg-[#FAF7F2] border-2 border-black p-6 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all">
+              <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center border-2 border-black mb-4 shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)]">
+                <Droplet className="w-5 h-5 text-blue-600 fill-blue-200" />
+              </div>
+              <h4 className="font-food-heavy font-normal text-lg uppercase tracking-wide text-black mb-2">Fortified for India</h4>
+              <p className="text-xs sm:text-sm text-gray-600 font-food font-medium leading-relaxed">
+                Iron, Vitamin D3, and Vitamin B12, precisely mapped against national clinical deficiency data.
+              </p>
+            </div>
+
+            <div className="bg-[#FAF7F2] border-2 border-black p-6 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all">
+              <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center border-2 border-black mb-4 shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)]">
+                <Sparkle className="w-5 h-5 text-emerald-600 fill-emerald-200" />
+              </div>
+              <h4 className="font-food-heavy font-normal text-lg uppercase tracking-wide text-black mb-2">Still a chip</h4>
+              <p className="text-xs sm:text-sm text-gray-600 font-food font-medium leading-relaxed">
+                Functional daily nutrition delivered in the crispy, crunchy format people already love reaching for.
+              </p>
+            </div>
+          </div>
+
+          {/* Deficiency gap headers */}
+          <div className="border-t-2 border-black/10 pt-10 mb-8 text-left">
+            <h3 className="font-food-heavy text-2.5xl sm:text-3xl uppercase tracking-wide text-black mb-2">
+              The deficiency gap
+            </h3>
+            <p className="text-sm text-gray-500 font-food font-semibold">
+              What the data shows India is missing, and what's fortified into every pack
+            </p>
+          </div>
+
+          {/* Table / rows */}
+          <div className="space-y-4 border-b-2 border-black/10 pb-10 mb-10 text-left">
+            {/* Row 1 */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-4 border-b border-gray-100 hover:bg-gray-50/50 px-2 transition-all rounded-lg">
+              <div className="flex items-center gap-4">
+                <div className="w-11 h-11 rounded-full bg-red-50 flex items-center justify-center border-2 border-black text-[#993C1D] shrink-0">
+                  <Activity className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-food-heavy text-base text-black uppercase tracking-wide">Iron deficiency anaemia</h4>
+                  <p className="text-xs text-gray-400 font-semibold font-food-space">NFHS-5, women aged 15 to 49</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-6 justify-between sm:justify-end">
+                <span className="font-food-heavy text-2xl md:text-3xl text-[#993C1D]">57%</span>
+                <span className="inline-flex items-center gap-1.5 bg-[#E1F5EE] text-[#085041] px-3 py-1 border-2 border-black text-xs font-food-space font-black uppercase tracking-wider rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] select-none">
+                  <Check className="w-3.5 h-3.5 stroke-[4]" /> Iron
+                </span>
+              </div>
+            </div>
+
+            {/* Row 2 */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-4 border-b border-gray-100 hover:bg-gray-50/50 px-2 transition-all rounded-lg">
+              <div className="flex items-center gap-4">
+                <div className="w-11 h-11 rounded-full bg-yellow-50 flex items-center justify-center border-2 border-black text-yellow-600 shrink-0">
+                  <Sun className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-food-heavy text-base text-black uppercase tracking-wide">Vitamin D deficiency</h4>
+                  <p className="text-xs text-gray-400 font-semibold font-food-space">Metropolis Healthcare, 2023 to 2024</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-6 justify-between sm:justify-end">
+                <span className="font-food-heavy text-2xl md:text-3xl text-[#993C1D]">46%</span>
+                <span className="inline-flex items-center gap-1.5 bg-[#E1F5EE] text-[#085041] px-3 py-1 border-2 border-black text-xs font-food-space font-black uppercase tracking-wider rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] select-none">
+                  <Check className="w-3.5 h-3.5 stroke-[4]" /> Vitamin D
+                </span>
+              </div>
+            </div>
+
+            {/* Row 3 */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-4 hover:bg-gray-50/50 px-2 transition-all rounded-lg">
+              <div className="flex items-center gap-4">
+                <div className="w-11 h-11 rounded-full bg-indigo-50 flex items-center justify-center border-2 border-black text-indigo-600 shrink-0">
+                  <Heart className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-food-heavy text-base text-black uppercase tracking-wide">Vitamin B12 deficiency</h4>
+                  <p className="text-xs text-gray-400 font-semibold font-food-space">Pooled Indian studies, 2025 meta-analysis</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-6 justify-between sm:justify-end">
+                <span className="font-food-heavy text-2xl md:text-3xl text-[#993C1D]">51%</span>
+                <span className="inline-flex items-center gap-1.5 bg-[#E1F5EE] text-[#085041] px-3 py-1 border-2 border-black text-xs font-food-space font-black uppercase tracking-wider rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] select-none">
+                  <Check className="w-3.5 h-3.5 stroke-[4]" /> B12
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Media / Seen On strip */}
+          <div className="text-left">
+            <div className="flex items-center gap-3.5 flex-wrap mb-5">
+              <span className="text-xs text-gray-500 font-food-space uppercase tracking-widest font-black">As seen on</span>
+              <span className="bg-[#8d5438] text-white text-[11px] font-food-space font-black uppercase tracking-wide px-3.5 py-1.5 border-2 border-black shadow-[2.5px_2.5px_0px_0px_rgba(0,0,0,1)] rounded">
+                CNBC-TV18
+              </span>
+            </div>
+
+            <p className="font-food text-gray-700 text-lg sm:text-xl leading-relaxed mb-8 max-w-xl font-medium">
+              Launched alongside Padma Shri Dr Arvind Lal, built around a simple question: why should snacking and nutrition sit on opposite sides of the aisle.
+            </p>
+
+            {/* Display / video mockup frames with thin dashed borders */}
+            <div className="grid grid-cols-3 gap-4 mb-3">
+              <div className="aspect-[4/3] border-2 border-dashed border-gray-300 rounded-xl bg-gray-50 hover:bg-gray-100 cursor-pointer flex items-center justify-center text-gray-400 hover:text-gray-600 transition-all shadow-sm">
+                <Camera className="w-6 h-6 stroke-1.5" />
+              </div>
+              <div className="aspect-[4/3] border-2 border-dashed border-gray-300 rounded-xl bg-gray-50 hover:bg-gray-100 cursor-pointer flex items-center justify-center text-gray-400 hover:text-gray-600 transition-all shadow-sm">
+                <Camera className="w-6 h-6 stroke-1.5" />
+              </div>
+              <div className="aspect-[4/3] border-2 border-dashed border-gray-300 rounded-xl bg-gray-50 hover:bg-gray-100 cursor-pointer flex items-center justify-center text-gray-400 hover:text-gray-600 transition-all shadow-sm transform relative group overflow-hidden">
+                <Play className="w-7 h-7 text-[#8d5438] fill-[#8d5438]/20 group-hover:scale-110 transition-transform duration-200 z-10" />
+                <div className="absolute inset-0 bg-[#8d5438]/5 group-hover:bg-[#8d5438]/10 transition-colors" />
+              </div>
+            </div>
+            <p className="text-xs text-gray-400 font-food-space font-bold uppercase tracking-wider">
+              Launch event, New Delhi · CNBC feature clip
+            </p>
+          </div>
+
+        </div>
+      </section>
+
       {/* 5. CO-FOUNDERS SECTION */}
       <section className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 border-b-4 border-black bg-[#351D14] text-white">
         <div className="max-w-6xl mx-auto flex flex-col items-center">
@@ -156,9 +322,8 @@ export default function AboutPage({ setView }: AboutPageProps) {
                   <h3 className="font-food-heavy font-normal text-2xl sm:text-3xl text-black uppercase tracking-wide mb-3">
                     {f.name}
                   </h3>
-                  <p className="text-sm sm:text-base text-gray-700 font-food font-medium leading-relaxed max-w-sm">
-                    {f.desc}
-                  </p>
+                  
+                  
                 </div>
               </div>
             ))}
@@ -166,145 +331,24 @@ export default function AboutPage({ setView }: AboutPageProps) {
         </div>
       </section>
 
-      {/* 2. THE WELCOME TO TWIRTLES STORY SECTION */}
-      <section className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 border-b-4 border-black bg-white">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    
           
-          {/* Left Block: Twirtles Brand Mascot/Graphics representation */}
-          <div className="bg-[#FAF7F2] border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-8 flex flex-col items-center text-center relative rounded-xl h-full justify-center">
-            <div className="absolute top-4 left-4 bg-[#8d5438] text-white text-[10px] font-food-space tracking-widest uppercase py-1 px-3 border border-black">
-              ORIGIN STORY
-            </div>
+        
 
-            {/* Giant Graphic Circle */}
-            <div className="w-48 h-48 rounded-full border-4 border-black bg-[#ffcad0] flex items-center justify-center shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] my-8 relative overflow-hidden group">
-              <span className="text-7xl animate-bounce">🐢</span>
-              <div className="absolute inset-0 bg-[#8d5438]/10 group-hover:bg-transparent transition-colors duration-200" />
-            </div>
 
-            <h3 className="font-food-heavy font-normal text-3xl uppercase tracking-wide text-black mb-2">
-              Yum & Vitality Wrapped in One
-            </h3>
-            <p className="font-food-space font-bold text-xs uppercase tracking-wider text-gray-400">
-              CRAFTED BY CONSCIOUS SNACKISTS DEEP IN INDIA
-            </p>
-          </div>
-
-          {/* Right Block: Pure Content verbatim style */}
-          <div className="flex flex-col items-start text-left">
-            <span className="text-[#8d5438] font-food-space text-sm font-black tracking-widest uppercase mb-2">
-              ABOUT US
-            </span>
-            <h2 className="font-food-heavy font-normal text-5xl sm:text-7xl lg:text-[5.5rem] text-black leading-[0.95] uppercase tracking-normal mb-8 relative">
-              Welcome to Twirtles
-              <span className="absolute left-0 bottom-1.5 h-3 w-48 bg-[#ffcad0]" />
-            </h2>
-
-            <p className="font-food font-medium text-gray-700 text-base sm:text-lg leading-relaxed mb-8">
-              We are proud to present a diverse range of healthy and delicious snacks designed to satisfy your cravings while nourishing your body. Our products are made from high-quality ingredients and come in a variety of exciting flavors to cater to every taste preference. Here's a look at what we offer:
-            </p>
-
-            <h3 className="font-food-heavy font-normal text-4xl text-black uppercase tracking-normal mb-6">
-              What We Offer
-            </h3>
-
-            <div className="space-y-4.5 w-full">
-              <div className="flex items-start gap-4 p-5 bg-[#FAF7F2] border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)]">
-                <span className="text-3xl mt-0.5">🍿</span>
-                <div>
-                  <h4 className="font-food-heavy font-normal text-xl uppercase text-[#8d5438] tracking-wide mb-1">Gourmet Roasted Makhanas</h4>
-                  <p className="text-sm text-gray-600 font-food font-medium leading-relaxed">
-                    Premium foxnuts slow-puffed and covered in real herbs, with zero artificial ingredients.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 p-5 bg-[#FAF7F2] border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)]">
-                <span className="text-3xl mt-0.5">📦</span>
-                <div>
-                  <h4 className="font-food-heavy font-normal text-xl uppercase text-[#8d5438] tracking-wide mb-1">Crispy Superfood Millet Packs</h4>
-                  <p className="text-sm text-gray-600 font-food font-medium leading-relaxed">
-                    Pure ragi, oats, quinoa, and beetroot dry-baked loops with massive fibers.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 3. INGREDIENT & PHILOSOPHY VALUES */}
-      <section className="bg-chomps-cream/40 py-24 md:py-32 px-4 sm:px-6 lg:px-8 border-b-4 border-black">
-        <div className="max-w-7xl mx-auto flex flex-col items-center">
-          <span className="text-[#8d5438] font-food-space text-sm font-black tracking-widest uppercase mb-2">
-            HOW WE COOK
-          </span>
-          <h2 className="font-food-heavy font-normal text-5xl sm:text-7xl lg:text-[5rem] text-black uppercase tracking-normal mb-14 text-center leading-[0.95]">
-            Twirtles Golden Core Pillars
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full text-left">
-            {values.map((v, i) => (
-              <div 
-                key={i} 
-                className="bg-white border-2 border-black p-6 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:shadow-[9px_9px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="p-3 bg-gray-50 border-2 border-black inline-block mb-4">
-                    {v.icon}
-                  </div>
-                  <h4 className="font-food-heavy font-normal text-2xl uppercase tracking-wide text-black mb-3">
-                    {v.title}
-                  </h4>
-                  <p className="text-sm text-gray-650 font-food font-medium leading-relaxed">
-                    {v.description}
-                  </p>
-                </div>
-                <div className="mt-6 border-t border-black/10 pt-4 flex items-center justify-between text-[10px] font-food-space font-bold uppercase text-gray-450">
-                  <span>PILLAR {i + 1}</span>
-                  <span className="text-emerald-600 font-black">ACTIVE • Certified</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* 4. OUR MILESTONES TIMELINE */}
-      <section className="py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-white border-b-4 border-black">
-        <div className="max-w-4xl mx-auto flex flex-col items-center">
-          <span className="text-[#8d5438] font-food-space text-sm font-black tracking-widest uppercase mb-2">
-            THE TIMELINE
-          </span>
-          <h2 className="font-food-heavy font-normal text-5xl sm:text-7xl lg:text-[5rem] text-black uppercase tracking-normal mb-16 text-center leading-[0.95]">
-            How The Shell Rolled High
-          </h2>
+      <section >
+        <div >
+          
+          
+                
+  
+    
 
-          <div className="relative border-l-4 border-black pl-8 md:pl-12 space-y-12 text-left">
-            {storyTimeline.map((item, index) => (
-              <div key={index} className="relative group">
-                {/* Timeline node */}
-                <div className="absolute -left-[48px] md:-left-[64px] top-1.5 w-9 h-9 rounded-full border-4 border-black bg-chomps-yellow flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  <span className="text-xs font-food-heavy font-normal text-black">{index + 1}</span>
-                </div>
-
-                <div className="bg-[#FAF7F2] border-2 border-black p-6 shadow-[5px_5px_0px_0px_rgba(141,84,56,0.25)] hover:shadow-[8px_8px_0px_0px_rgba(141,84,56,0.45)] transition-all">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3.5 border-b pb-2.5 border-dashed border-gray-300">
-                    <h3 className="font-food-heavy font-normal text-2xl text-[#8d5438] uppercase tracking-wide select-none">
-                      {item.title}
-                    </h3>
-                    <span className="bg-[#ffcad0] text-[10px] font-food-space font-black text-black px-4 py-1.5 uppercase tracking-widest select-none border-2 border-black shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)] rounded-sm">
-                      YEAR {item.year}
-                    </span>
-                  </div>
-                  <p className="text-sm text-gray-650 font-food font-medium leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+{/* 4.5 FEATURED IN CAROUSEL SECTION */}
+      <FeaturedIn/>
+             
         </div>
       </section>
 
@@ -312,54 +356,7 @@ export default function AboutPage({ setView }: AboutPageProps) {
       <FAQ />
 
       {/* 6. CALL TO ACTION FOR SHOPPING */}
-      <section className="bg-chomps-yellow py-20 px-4 text-center border-b-4 border-black">
-        <div className="max-w-3xl mx-auto flex flex-col items-center">
-          <span className="text-[#351D14] font-food-space text-sm sm:text-base font-black tracking-widest uppercase mb-2">
-            STOMACH IS GROWLING?
-          </span>
-          <h2 className="font-food-heavy font-normal text-5xl sm:text-7xl text-black leading-none uppercase tracking-normal mb-8">
-            Get 10% Off Your First Bag!
-          </h2>
-          <p className="font-food font-medium text-gray-700 text-base sm:text-lg leading-relaxed max-w-lg mb-8">
-            Treat your tastebuds and gut to premium roasted Makhana canisters and baked supergrain crunch packs.
-          </p>
-
-          <div className="flex flex-col items-center gap-4.5 w-full">
-            <div className="flex flex-wrap gap-4.5 justify-center">
-              <button
-                onClick={() => setView('home')}
-                className="bg-[#8d5438] hover:bg-[#723F27] text-white border-2 border-black font-food-heavy font-normal text-base uppercase px-8 py-4 px-10 hover:translate-y-0.5 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer rounded-full tracking-wider inline-flex items-center gap-2"
-              >
-                SHOP NEW DROPS
-                <ArrowRight className="w-5 h-5 text-white" />
-              </button>
-              <button
-                onClick={() => setIsSubscribed(true)}
-                disabled={isSubscribed}
-                className={`border-2 border-black font-food-heavy font-normal text-base uppercase px-8 py-4 px-10 hover:translate-y-0.5 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer rounded-full tracking-wider inline-flex items-center gap-2 ${
-                  isSubscribed 
-                    ? 'bg-emerald-600 text-white cursor-not-allowed border-emerald-700 shadow-none hover:translate-y-0' 
-                    : 'bg-white hover:bg-gray-100 text-black'
-                }`}
-              >
-                {isSubscribed ? 'SUBSCRIBED!' : 'SUBSCRIBE TO NEWSLETTER'}
-                <Zap className={`w-5 h-5 ${isSubscribed ? 'text-white' : 'animate-bounce'}`} />
-              </button>
-            </div>
-            
-            {isSubscribed && (
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-4 bg-[#FAF7F2] border-2 border-dashed border-[#8d5438] p-4 text-[#351D14] uppercase font-food font-bold text-sm tracking-wider max-w-md shadow-sm"
-              >
-                🎉 Twirtles Newsletter: Succeeded with "{localStorage.getItem('twirtles_user_email') || 'your account email'}"! Use Coupon <span className="bg-[#FFF200] px-1 font-bold text-black border border-black">FREE10</span> for 10% Off.
-              </motion.div>
-            )}
-          </div>
-        </div>
-      </section>
-
+     
     </div>
   );
 }

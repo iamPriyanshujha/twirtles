@@ -3,6 +3,8 @@ export interface Product {
   name: string;
   category: string;
   price: number;
+  mrp?: number;
+  weight?: string;
   rating: number;
   image: string;
   badge?: string;

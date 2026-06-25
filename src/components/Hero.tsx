@@ -10,7 +10,7 @@ interface HeroProps {
 export default function Hero({ onShopClick }: HeroProps) {
   const nutritionClaims = [
     {
-      title: "10-12G PROTEIN",
+      title: "HIGH PROTEIN",
       description: "Fuel for your daily hustle",
       icon: (
         <svg className="w-8 h-8 text-[#8d5438]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -21,8 +21,8 @@ export default function Hero({ onShopClick }: HeroProps) {
       )
     },
     {
-      title: "0G SUGAR",
-      description: "No sugar crash, pure energy",
+      title: "NO PALM OIL",
+      description: "CLEAN & SUSTAINABLE INGREDIENTS",
       icon: (
         <svg className="w-8 h-8 text-[#8d5438]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <rect x="4" y="10" width="16" height="10" rx="2" />
@@ -33,8 +33,8 @@ export default function Hero({ onShopClick }: HeroProps) {
       )
     },
     {
-      title: "KETO FRIENDLY",
-      description: "Perfect for low-carb schedules",
+      title: "GLUTEN FREE",
+      description: "SAFE FOR SENSITIVE TUMMIES",
       icon: (
         <svg className="w-8 h-8 text-[#8d5438]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
@@ -42,8 +42,8 @@ export default function Hero({ onShopClick }: HeroProps) {
       )
     },
     {
-      title: "LOW-CARB",
-      description: "Clean macro profile",
+      title: "SUPERFOODS",
+      description: "PACKED WITH POWERFUL NUTRIENTS",
       icon: (
         <svg className="w-8 h-8 text-[#8d5438]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -52,8 +52,8 @@ export default function Hero({ onShopClick }: HeroProps) {
       )
     },
     {
-      title: "ALLERGY FRIENDLY",
-      description: "Free of main food allergens",
+      title: "Micro nutrient",
+      description: "NUTRIENT - DENSE SNACKING",
       icon: (
         <svg className="w-8 h-8 text-[#8d5438]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <circle cx="12" cy="12" r="10" />
@@ -63,8 +63,8 @@ export default function Hero({ onShopClick }: HeroProps) {
       )
     },
     {
-      title: "NO FILLERS",
-      description: "Only pure premium inputs",
+      title: "NO CHOLESTEROL",
+      description: "HEART-HEALTHY CHOICE",
       icon: (
         <svg className="w-8 h-8 text-[#8d5438]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M4.5 16.5c-1.5 1.5-2.5 3.5-2.5 5.5h20c0-2-1-4-2.5-5.5L14 11V3h-4v8L4.5 16.5z" />

@@ -64,7 +64,7 @@ export default function Header({
         </div>
       </div>
 
-       <header className="sticky top-0 z-50 bg-[#B08968] px-2.5 xs:px-4 md:px-10 py-3.5 md:py-6 text-[#351D14] shadow-xs select-none border-b border-[#E6CCB2]">
+       <header className="sticky top-0 z-50 bg-[#e6ccb2] px-2.5 xs:px-4 md:px-10 py-3.5 md:py-6 text-[#351D14] shadow-xs select-none border-b border-[#E6CCB2]">
         <div className="relative w-full flex items-center justify-between gap-4">
           
           {/* Left Side Navigation wrapper */}
@@ -80,6 +80,9 @@ export default function Header({
               >
                 <span>Home</span>
               </button>
+
+
+
               
               <span className="text-[#351D14]/20 font-light select-none">|</span>
               
@@ -93,7 +96,38 @@ export default function Header({
               >
                 <span>About</span>
               </button>
+            
+
+           
+
+
+ {/* Keyword Search Input positioned before logo, after about */}
+              <div className="relative ml-2">
+                <input
+                  id="header-search-input"
+                  type="text"
+                  placeholder="Enter Keyword"
+                  value={searchQuery}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                    if (currentView !== 'home') {
+                      setView('home');
+                    }
+                  }}
+                  className="w-40 lg:w-48 bg-white border border-[#D0C0BC] px-3.5 py-1.5 text-xs sm:text-[13px] font-sans tracking-wide rounded-none focus:outline-none text-[#351D14] placeholder-gray-400 shadow-2xs h-9.5"
+                />
+                {searchQuery && (
+                  <button 
+                    id="clear-search-btn"
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-2.5 top-2 text-chomps-red hover:text-black font-bold text-sm"
+                  >
+                    ×
+                  </button>
+                )}
+              </div>
             </nav>
+            
 
             {/* Mobile Hamburger Menu Icon Trigger */}
             <button
@@ -105,6 +139,18 @@ export default function Header({
               <Menu className="w-6 h-6" strokeWidth={2} />
             </button>
           </div>
+
+
+
+          
+
+
+
+
+
+
+
+
 {/* Center Brand Logo - Positioned perfectly in the center, preventing any collision */}
 <div 
   id="header-app-logo"
@@ -119,31 +165,7 @@ export default function Header({
           {/* Right Side Widgets (Search Input, Wishlist, My Account, My Cart) */}
           <div className="flex-1 flex items-center justify-end gap-1.5 xs:gap-2.5 sm:gap-4 md:gap-6">
             
-            {/* Keyword Search Input styled exactly like the screenshot - hidden below md */}
-            <div className="relative hidden md:block">
-              <input
-                id="header-search-input"
-                type="text"
-                placeholder="Enter Keyword"
-                value={searchQuery}
-                onChange={(e) => {
-                  setSearchQuery(e.target.value);
-                  if (currentView !== 'home') {
-                    setView('home');
-                  }
-                }}
-                className="w-40 lg:w-48 bg-white border border-[#D0C0BC] px-3.5 py-1.5 text-xs sm:text-[13px] font-sans tracking-wide rounded-none focus:outline-none text-[#351D14] placeholder-gray-400 shadow-2xs h-9.5"
-              />
-              {searchQuery && (
-                <button 
-                  id="clear-search-btn"
-                  onClick={() => setSearchQuery('')}
-                  className="absolute right-2.5 top-2 text-chomps-red hover:text-black font-bold text-sm"
-                >
-                  ×
-                </button>
-              )}
-            </div>
+           
 
             {/* Wishlist Link - Responsive design */}
             <button
@@ -553,4 +575,3 @@ export default function Header({
     </>
   );
 }
-

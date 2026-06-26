@@ -11,7 +11,7 @@ export default function Hero({ onShopClick }: HeroProps) {
   const nutritionClaims = [
     {
       title: "HIGH PROTEIN",
-      description: "Fuel for your daily hustle",
+     // description: "Fuel for your daily hustle",
       icon: (
         <svg className="w-8 h-8 text-[#8d5438]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M12 4a4 4 0 0 1 4 4c0 1.5-.5 3-1.5 4.5l-2.5 3a2 2 0 0 1-3 0l-2.5-3A5.5 5.5 0 0 1 5 8a4 4 0 0 1 4-4" />
@@ -22,7 +22,7 @@ export default function Hero({ onShopClick }: HeroProps) {
     },
     {
       title: "NO PALM OIL",
-      description: "CLEAN & SUSTAINABLE INGREDIENTS",
+     // description: "CLEAN & SUSTAINABLE INGREDIENTS",
       icon: (
         <svg className="w-8 h-8 text-[#8d5438]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <rect x="4" y="10" width="16" height="10" rx="2" />
@@ -34,7 +34,7 @@ export default function Hero({ onShopClick }: HeroProps) {
     },
     {
       title: "GLUTEN FREE",
-      description: "SAFE FOR SENSITIVE TUMMIES",
+     // description: "SAFE FOR SENSITIVE TUMMIES",
       icon: (
         <svg className="w-8 h-8 text-[#8d5438]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
@@ -42,8 +42,8 @@ export default function Hero({ onShopClick }: HeroProps) {
       )
     },
     {
-      title: "SUPERFOODS",
-      description: "PACKED WITH POWERFUL NUTRIENTS",
+      title: "SUPERFOOD",
+     // description: "PACKED WITH POWERFUL NUTRIENTS",
       icon: (
         <svg className="w-8 h-8 text-[#8d5438]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -52,8 +52,8 @@ export default function Hero({ onShopClick }: HeroProps) {
       )
     },
     {
-      title: "Micro nutrient",
-      description: "NUTRIENT - DENSE SNACKING",
+      title: "Added Vits  & Mins",
+     // description: "NUTRIENT - DENSE SNACKING",
       icon: (
         <svg className="w-8 h-8 text-[#8d5438]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <circle cx="12" cy="12" r="10" />
@@ -64,7 +64,7 @@ export default function Hero({ onShopClick }: HeroProps) {
     },
     {
       title: "NO CHOLESTEROL",
-      description: "HEART-HEALTHY CHOICE",
+     // description: "HEART-HEALTHY CHOICE",
       icon: (
         <svg className="w-8 h-8 text-[#8d5438]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M4.5 16.5c-1.5 1.5-2.5 3.5-2.5 5.5h20c0-2-1-4-2.5-5.5L14 11V3h-4v8L4.5 16.5z" />
@@ -121,9 +121,7 @@ export default function Hero({ onShopClick }: HeroProps) {
                 <h4 className="font-display font-black text-sm sm:text-base text-chomps-black uppercase tracking-wider leading-tight">
                   {claim.title}
                 </h4>
-                <p className="text-[10px] text-gray-400 font-sans font-bold uppercase mt-1 leading-tight">
-                  {claim.description}
-                </p>
+                
               </div>
             ))}
           </div>
@@ -134,19 +132,19 @@ export default function Hero({ onShopClick }: HeroProps) {
       {/* 3. INFINITE RED MARQUEE SCROLL (Verbatim Image 2 bottom strip) */}
       <div className="bg-[#8d5438] py-2 text-center overflow-hidden border-y-2 border-black select-none">
         <div className="whitespace-nowrap flex animate-marquee text-[#FAF7F2] font-sans text-[10px] sm:text-[11px] tracking-widest uppercase font-black items-center gap-12">
-          <span>🎯 FIND US IN OVER 51,000 STORES NATIONWIDE! WHERE TO BUY</span>
+          <span>🎯 Step into the future of snacking with Twirtles</span>
           <span className="text-[#FFF200] font-black select-none">●</span>
-          <span>🔥 SUBSCRIBE & SAVE 10% ON ALL ORDER DELIVERIES NOW!</span>
+          <span>🔥 Step into the future of snacking with Twirtles</span>
           <span className="text-[#FFF200] font-black select-none">●</span>
-          <span>🌿 GLUTEN FREE & WHEY Fortified</span>
+          <span>🌿 Step into the future of snacking with Twirtles</span>
           <span className="text-[#FFF200] font-black select-none">●</span>
-          <span> popcorn and premium Superpuffs multigrain chips </span>
+          <span> Step into the future of snacking with Twirtles </span>
           <span className="text-[#FFF200] font-black select-none">●</span>
-          <span>🍿 NO SEED OILS OR TOXIC MONOCULTURE INPUTS</span>
+          <span>🍿 Step into the future of snacking with Twirtles</span>
           <span className="text-[#FFF200] font-black select-none">●</span>
-          <span>🎯 FIND US IN OVER 51,000 STORES NATIONWIDE! WHERE TO BUY</span>
+          <span>🎯 Step into the future of snacking with Twirtles</span>
           <span className="text-[#FFF200] font-black select-none">●</span>
-          <span>🔥 SUBSCRIBE & SAVE 10% ON ALL ORDER DELIVERIES NOW!</span>
+          <span>🔥 Step into the future of snacking with Twirtles</span>
           <span className="text-[#FFF200] font-black select-none">●</span>
         </div>
       </div>

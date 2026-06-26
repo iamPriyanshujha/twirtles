@@ -171,7 +171,7 @@ export default function Footer({ currentView, setView }: FooterProps) {
 
       {/* Deep Bottom Disclaimer Bar */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 mt-14 pt-6 border-t border-[#351D14]/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-[#351D14]/70 font-mono font-bold">
-        <p>© {new Date().getFullYear()}  Deccan Food Ventures . Ltd. All rights reserved.</p>
+        <p>© {new Date().getFullYear()}  Deccan Food Ventures . All rights reserved.</p>
         <p className="flex items-center gap-1">
           Made with <Heart className="w-2.5 h-2.5 text-chomps-red fill-chomps-red animate-pulse" /> in India. 
           <span className="flex items-center gap-1 text-[#351D14] pl-1.5 font-bold"><Shield className="w-3.5 h-3.5 text-[#8d5438]" /> FSSAI Approved</span>

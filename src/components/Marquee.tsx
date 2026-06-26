@@ -7,9 +7,9 @@ interface MarqueeProps {
 }
 
 const DEFAULT_ITEMS = [
-  'Step into the future of snacking with Twirtles',
-  'Embrace the next generation of snacking with Twirtles',
-  'Snack Revolution: Twirtles Redefine the Future of Indulgence',
+  'India’s First Protein chips fortified with vitamins & Minerals',
+  'India’s First Protein chips fortified with vitamins & Minerals',
+  'India’s First Protein chips fortified with vitamins & Minerals',
 ];
 
 export default function Marquee({ 

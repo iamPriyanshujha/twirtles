@@ -44,21 +44,17 @@ export default function Header({
       <div className="bg-[#8d5438] py-2 border-y-2 border-black overflow-hidden select-none z-50">
         <div className="w-full overflow-hidden whitespace-nowrap">
           <div className="animate-marquee inline-flex text-[#FAF7F2] font-sans text-[10px] sm:text-[11.5px] tracking-widest uppercase font-black items-center gap-12">
-            <span>Step into the future of snacking with Twirtles ✨</span>
+            <span>Use Code Twirtles10 to get additional 10% off  ✨</span>
             <span className="text-[#FFF200] font-black select-none">●</span>
-            <span>Step into the future of snacking with Twirtles ✨</span>
+            <span>Use Code Twirtles10 to get additional 10% off  ✨</span>
             <span className="text-[#FFF200] font-black select-none">●</span>
-            <span>Step into the future of snacking with Twirtles ✨</span>
+            <span>Use Code Twirtles10 to get additional 10% off  ✨</span>
             <span className="text-[#FFF200] font-black select-none">●</span>
-            <span>Step into the future of snacking with Twirtles ✨</span>
+            <span>Use Code Twirtles10 to get additional 10% off  ✨</span>
             <span className="text-[#FFF200] font-black select-none">●</span>
-            <span>Step into the future of snacking with Twirtles ✨</span>
+            <span>Use Code Twirtles10 to get additional 10% off  ✨</span>
             <span className="text-[#FFF200] font-black select-none">●</span>
-            <span>Step into the future of snacking with Twirtles ✨</span>
-            <span className="text-[#FFF200] font-black select-none">●</span>
-            <span>Step into the future of snacking with Twirtles ✨</span>
-            <span className="text-[#FFF200] font-black select-none">●</span>
-            <span>Step into the future of snacking with Twirtles ✨</span>
+            <span>Use Code Twirtles10 to get additional 10% off  ✨</span>
             <span className="text-[#FFF200] font-black select-none">●</span>
           </div>
         </div>

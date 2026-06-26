@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import arjun from "../assets/images/arjun.png";
 import pawan from "../assets/images/pawan.png";
+
+
 import { motion } from 'motion/react';
 
 import { 
@@ -73,23 +75,7 @@ export default function AboutPage({ setView }: AboutPageProps) {
     }
   ];
 
-  const storyTimeline = [
-    {
-      year: "2024",
-      title: "The Seed Oil Realization",
-      desc: "Our founders realized that 99% of snacking options in Indian supermarkets are packed with refined palm oil or deep-fried in inflammatory fats under 'healthy' labels. We pledged to build a snacks brand that is honest down to the final ingredient."
-    },
-    {
-      year: "2025",
-      title: "Perfecting the Puffing Tech",
-      desc: "We engineered proprietary convection heat-puffs that lock in absolute crispiness without using single-drop frying methods. Our test batches of Makhana & Millet packs became home favorites."
-    },
-    {
-      year: "2026",
-      title: "Serving Looks & Snacks",
-      desc: "Twirtles went live nationwide, distributing cleanly-sourced, gourmet millet canisters & packs to conscious snackers. Today, over 4,500 active retail shelves stock our products."
-    }
-  ];
+
 
   return (
     <div className="bg-[#FAF7F2] min-h-screen text-black select-none font-food">
@@ -100,9 +86,7 @@ export default function AboutPage({ setView }: AboutPageProps) {
         <div className="absolute top-10 left-[8%] bg-[#8d5438] text-white font-food-space text-[10px] sm:text-xs font-black px-4 py-2 uppercase tracking-widest border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-3 hidden sm:block">
           100% CLEAN LABEL 🌿
         </div>
-        <div className="absolute bottom-12 right-[6%] bg-chomps-yellow text-black font-food-space text-[10px] sm:text-xs font-black px-4 py-2 uppercase tracking-widest border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -rotate-6 hidden sm:block">
-          BAKED WITH LOVE 🐢
-        </div>
+       
 
         <div className="max-w-7xl mx-auto px-4 text-center">
           <motion.div
@@ -111,9 +95,7 @@ export default function AboutPage({ setView }: AboutPageProps) {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center"
           >
-            <span className="text-[#8d5438] font-food-space text-xs sm:text-sm font-black tracking-widest uppercase mb-4 bg-white px-4 py-1.5 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-              ABOUT OUR CO-OP
-            </span>
+            
             
             <h1 className="font-food-heavy font-normal text-6xl sm:text-8xl md:text-9xl lg:text-[7rem] text-black leading-[0.95] uppercase tracking-wide mb-8 drop-shadow-[3px_3px_0px_rgba(255,242,0,1)]">
               MEET <span className="text-[#8d5438]">TWIRTLES</span>

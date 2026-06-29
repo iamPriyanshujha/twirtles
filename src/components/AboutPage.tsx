@@ -50,6 +50,7 @@ export default function AboutPage({ setView }: AboutPageProps) {
       image: "/src/assets/images/pawan.png",
       desc: "Perfecting high-tech convection baking methods to puff snacks without a single-drop of frying."
     }
+    
   ];
 
   const values = [

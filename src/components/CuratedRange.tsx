@@ -120,11 +120,11 @@ export default function CuratedRange({
         
         <div className="text-center mb-6">
           <h2 className="font-display font-black text-4xl sm:text-5xl md:text-6.5xl text-chomps-black tracking-widest uppercase leading-none">
-            These Snacks Stack Up
+            Because Your Cravings Deserve better
           </h2>
           <p className="font-sans font-bold text-gray-500 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto uppercase mt-3 tracking-wide">
             {viewMode === 'slider' 
-              ? "Who said snacks need to be complicated? Stick to the basics: 0g sugar and plenty of protein, in a range of Chompable flavors."
+              ? "Explore Our Entire Range"
               : "Bite into our delicious, high protein chips or crispy puffs. Stack up on what fits, loaded to fuel your day with absolute clean nutrition."
             }
           </p>
@@ -139,7 +139,7 @@ export default function CuratedRange({
                 viewMode === 'slider' ? 'bg-[#8d5438] text-white' : 'text-black bg-white hover:bg-[#ffcad0]/30 font-bold'
               }`}
             >
-              🚀 Canister & Pack Slider
+              🚀 Slider View
             </button>
             <button 
               onClick={() => { setViewMode('grid'); setPage(0); }}
@@ -147,7 +147,7 @@ export default function CuratedRange({
                 viewMode === 'grid' ? 'bg-[#8d5438] text-white' : 'text-black bg-white hover:bg-[#ffcad0]/30 font-bold'
               }`}
             >
-              ▦ Traditional Grid Catalog
+              ▦  Grid Catalog
             </button>
           </div>
         </div>

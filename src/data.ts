@@ -2,6 +2,7 @@ import { Product, FAQItem, TestimonialItem, PressRelease } from './types';
 
 
 export const PRODUCTS: Product[] = [
+ 
   {
     id: 'superpuffs-spanish-tomato',
     name: 'Superpuffs - Spanish Tomato',
@@ -37,6 +38,60 @@ export const PRODUCTS: Product[] = [
       text: 'text-amber-800',
       accent: '#D97706',
       chipColorBg: 'bg-amber-700',
+    }
+  },
+  {
+    id: '210690-superpuffs-hot-sweet-chilli-jar',
+    name: 'Superpuffs- Hot & Sweet Chilli Jar Pack',
+    category: 'Superpuffs',
+    price: 199.00,
+    mrp: 250.00,
+    weight: '150g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'Family Size',
+    description: 'Large shareable airtight canister packed with hot & sweet chilli vitamin-fortified puffs.',
+    colorTheme: {
+      bg: 'bg-red-500/10',
+      text: 'text-red-750',
+      accent: '#EF4444',
+      chipColorBg: 'bg-red-600',
+    }
+  },
+  {
+    id: '210690-superpuffs-creme-onion-jar',
+    name: 'Superpuffs- Crème & Onion Jar Pack',
+    category: 'Superpuffs',
+    price: 199.00,
+    mrp: 250.00,
+    weight: '150g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'Cozy Pack',
+    description: 'Crispy high-protein creme & onion puff crisps in our large reusable jar.',
+    colorTheme: {
+      bg: 'bg-emerald-500/10',
+      text: 'text-emerald-800',
+      accent: '#10B981',
+      chipColorBg: 'bg-emerald-600',
+    }
+  },
+  {
+    id: '210690-superpuffs-indie-masala-jar',
+    name: 'Superpuffs- Indie Masala Jar Pack',
+    category: 'Superpuffs',
+    price: 199.00,
+    mrp: 250.00,
+    weight: '150g',
+    rating: 5,
+    image: 'https://twirtles.com/wp-content/uploads/2026/04/45154623562-1-scaled.png',
+    badge: 'Spicy Masala',
+    description: 'A traditional aromatic blend of Indian masalas coated onto our premium protein-dense puffs.',
+    colorTheme: {
+      bg: 'bg-amber-500/10',
+      text: 'text-amber-800',
+      accent: '#EA580C',
+      chipColorBg: 'bg-amber-600',
     }
   },
   {
